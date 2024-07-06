@@ -38,7 +38,7 @@ class GoogleSheetsAuthManager:
     def callback(self, code: str = None, state: str = None, error: str = None):
         try:
             self.flow.fetch_token(code=code)
-            return self.flow.credentials.token
+            return self.flow.credentials.to_json()
         except ValueError as e:
             raise HTTPException(status_code=400, detail=str(e))
         except Exception:

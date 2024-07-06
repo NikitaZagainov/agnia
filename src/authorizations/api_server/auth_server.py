@@ -18,7 +18,6 @@ def authorize_in_google_sheets():
 @app.get("/get/token/google-sheets", include_in_schema=False)
 def get_google_sheets_token(state: str, code: str, scope: str):
     authorization_data = google_sheets_manager.callback(code, state, scope)
-    print("Token received")
     return save_authorization_data(authorization_data, "GoogleSheets")
 
 
