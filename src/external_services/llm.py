@@ -1,4 +1,5 @@
 import aiohttp
+import requests
 from src.settings import endpoints_settings, team_auth_settings
 
 
