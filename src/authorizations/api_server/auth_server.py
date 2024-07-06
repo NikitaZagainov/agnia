@@ -9,7 +9,11 @@ from pydantic import BaseModel
 from src.authorizations import todoist
 from src.authorizations.git_flame import authorize_in_git_flame
 from src.authorizations.utils import save_authorization_data
-from src.authorizations.exceptions import UserAuthorizationError, ServerAuthorizationError, InvalidCredentialsError
+from src.authorizations.exceptions import (
+    UserAuthorizationError,
+    ServerAuthorizationError,
+    InvalidCredentialsError,
+)
 from src.settings import team_auth_settings
 
 app = FastAPI()
@@ -27,9 +31,9 @@ def authorize_in_todoist():
 
 @app.get("/get/token/todoist", include_in_schema=False)
 def get_todoist_token(
-        code: str = None,
-        state: str = None,
-        error: str = None,
+    code: str = None,
+    state: str = None,
+    error: str = None,
 ):
     if error == "invalid_application_status":
         raise HTTPException(status_code=500, detail="Invalid application status")
@@ -41,7 +45,7 @@ def get_todoist_token(
     try:
         decoded_state = base64.urlsafe_b64decode(state.encode()).decode()
         state_data = json.loads(decoded_state)
-        user_id = state_data["user_id"]
+        # user_id = state_data["user_id"]
         orginal_state = state_data["state"]
     except ValueError:
         raise HTTPException(status_code=400, detail="State parameter mismatch")
@@ -65,7 +69,9 @@ async def authorize_in_git_flame_and_send(credentials: GitFlameCredentials):
             detail="Unexpected error occurred when sending request to GitFlame",
         )
     except requests.exceptions.JSONDecodeError:
-        raise HTTPException(status_code=500, detail="Error in decoding response from GitFlame")
+        raise HTTPException(
+            status_code=500, detail="Error in decoding response from GitFlame"
+        )
     except ServerAuthorizationError as e:
         raise HTTPException(status_code=500, detail=str(e))
     except (InvalidCredentialsError, UserAuthorizationError) as e:

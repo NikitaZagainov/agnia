@@ -1,10 +1,10 @@
-from typing import Generic, TypeVar, Dict
+from typing import Generic, TypeVar
 from abc import ABC, abstractmethod
 
 from pydantic import BaseModel
 
-TInput = TypeVar('TInput', bound=BaseModel)
-TOutput = TypeVar('TOutput', bound=BaseModel)
+TInput = TypeVar("TInput", bound=BaseModel)
+TOutput = TypeVar("TOutput", bound=BaseModel)
 
 
 class Action(ABC, Generic[TInput, TOutput]):

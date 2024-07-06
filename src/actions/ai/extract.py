@@ -6,7 +6,6 @@ from src.models.extract_params import ExtractInputParams, ExtractOutputParams
 
 
 class Extract(Action[ExtractInputParams, ExtractOutputParams]):
-
     def __init__(
         self,
         action_name,
@@ -14,30 +13,26 @@ class Extract(Action[ExtractInputParams, ExtractOutputParams]):
         max_tokens=None,
     ):
         super().__init__(action_name)
-        self.llm = LLM()  
-        
+        self.llm = LLM()
+
         self.stop = stop
         self.max_tokens = max_tokens
         self.temperature = 0.1
 
     def get_prompt(self) -> str:
         return "PROMPT"
-    
+
     async def execute(self, input_data: ExtractInputParams) -> ExtractOutputParams:
         user_request = input_data.user_request
         prompt = self.get_prompt()
         prompt = prepare_prompt(prompt, user_request)
         answer = await self.llm.get_response(
-            {
-                "prompt": prompt,
-                "stop": self.stop,
-                "max_tokens": self.max_tokens
-            }
+            {"prompt": prompt, "stop": self.stop, "max_tokens": self.max_tokens}
         )
         return ExtractOutputParams(answer=answer)
 
 
-@register_action(ExtractInputParams, ExtractOutputParams, system_name = 'GitFlame')
+@register_action(ExtractInputParams, ExtractOutputParams, system_name="GitFlame")
 class ExtractIssueTitle(Extract):
     action_name = "extract_issue_title"
 
@@ -65,13 +60,13 @@ You are a text analysis expert. You are given a user review. Your goal is to cre
 <Answer>"""
 
 
-@register_action(ExtractInputParams, ExtractOutputParams, system_name = 'GitFlame')
+@register_action(ExtractInputParams, ExtractOutputParams, system_name="GitFlame")
 class ExtractIssueBody(Extract):
     action_name = "extract_issue_body"
 
     def __init__(self):
         super().__init__(self.action_name, stop="</Answer>", max_tokens=1000)
-        
+
     def get_prompt(self) -> str:
         return """<Prompt>
 <Instruction>
