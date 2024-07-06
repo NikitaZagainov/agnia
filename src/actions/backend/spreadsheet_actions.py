@@ -46,7 +46,10 @@ def query_sheet(
 ) -> DownloadAndQuerySheetOutputParams:
     token = json.loads(auth_data[SYSTEM_NAME])
     service.authenticate(token)
-    data_frame = service.extract_data_from_google_sheet(input_params.doc_id)
+    try:
+        data_frame = service.extract_data_from_google_sheet(input_params.doc_id)
+    except Exception as e:
+        return DownloadAndQuerySheetOutputParams(query_result="invalid link to doc")
     df_schema = service.infer_schema(data_frame)
     query = service.generate_sql_query(input_params.user_query, data_frame, df_schema)
     query_result = service.query_table(data_frame, query)
@@ -64,5 +67,7 @@ def postprocess_sheet(
     auth_data: dict, input_params: SheetPostprocessingInputParams
 ) -> SheetPostprocessingOutputParams:
     return SheetPostprocessingOutputParams(
-        service.postprocess_results(input_params.message, input_params.report)
+        report=service.postprocess_result(
+            input_params.user_query, input_params.query_result
+        )
     )

@@ -94,10 +94,11 @@ class SpreadSheetService:
         return sql_query
 
     def postprocess_result(self, user_query: str, extracted_data: str) -> str:
-        prompt = "Generate an understandable report on this message: {}, given this result: {}"
+        prompt = "Generate an understandable report on this message: {}, given this result: {}. "
+        "Construct your response as short as possible and do not mention links."
         with ThreadPoolExecutor(max_workers=1) as executor:
             future = executor.submit(lambda: asyncio.run(
-                self.llm.get_response({"prompt": prompt.format(user_query, extracted_data)})))
+                self._llm.get_response({"prompt": prompt.format(user_query, extracted_data)})))
             return future.result()
 
     def query_table(self, df: pd.DataFrame, query: str) -> str:

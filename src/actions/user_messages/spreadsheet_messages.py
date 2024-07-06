@@ -8,9 +8,9 @@ def form_extract_id_message(action_result_data: dict) -> tuple:
     return message_str, message_dict
 
 def form_query_sheet_message(action_result_data: dict) -> tuple:
-    report = action_result_data["report"]
-    message_dict = {"report": report}
-    message_str = f"Report: \n{report}"
+    query_result = action_result_data["query_result"]
+    message_dict = {"query_result": query_result}
+    message_str = f"Query result: \n{query_result}"
     return message_str, message_dict
 
 def form_postprocess_sheet_message(action_result_data: dict) -> tuple:
