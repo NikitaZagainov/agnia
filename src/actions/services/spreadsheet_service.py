@@ -13,6 +13,22 @@ import asyncio
 from sqlite3 import connect, OperationalError
 
 
+def convert_dtypes(col):
+    col = col.str.strip()
+    if col.dtype == "object":
+        try:
+            col_new = pd.to_numeric(col, errors='ignore')
+            return col_new
+        except:
+            try:
+                col_new = pd.to_datetime(col, errors='ignore')
+                return col_new
+            except:
+                return col
+    else:
+        return col.dtype
+
+
 class SpreadSheetService:
     def __init__(self):
         self._is_authenticated: bool = False
@@ -42,19 +58,20 @@ class SpreadSheetService:
                 'Service is not authenticated. User authenticate method first.')
 
         gsheets = self._access_service.spreadsheets().get(spreadsheetId=doc_id).execute()
+
         for sheet in gsheets['sheets']:
             if sheet['properties']['title'] == 'master':
                 continue
-
             dataset = self._access_service.spreadsheets().values().get(
                 spreadsheetId=doc_id,
                 range=sheet['properties']['title'],
                 majorDimension='ROWS').execute()
-            data_frame = pd.DataFrame(dataset['values'])
-            data_frame.columns = data_frame.iloc[0]
-            data_frame.drop(data_frame.index[0], inplace=True)
+            cols = dataset["values"][0]
+            data_frame = pd.DataFrame(dataset['values'][1:], columns=cols)
             data_frame.columns = [col.replace(
                 " ", "_") for col in data_frame.columns]
+            # Try to infer the data types of the columns
+            data_frame = data_frame.apply(convert_dtypes)
             return data_frame
 
     def infer_schema(self, data_frame: pd.DataFrame) -> str:
@@ -145,7 +162,6 @@ class SpreadSheetService:
         query_results = []
         for query in generated_queries:
             try:
-                print(type(data_frame))
                 query_result = self.query_table(data_frame, query)
             except Exception:
                 query_result = None

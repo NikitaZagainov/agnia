@@ -63,7 +63,7 @@ def query_sheet(
         data_frame = service.extract_data_from_google_sheet(
             input_params.doc_id)
     except Exception as e:
-        return DownloadAndQuerySheetOutputParams(query_result="invalid link to doc")
+        return DownloadAndQuerySheetOutputParams(query_result="invalid link to doc", error_code=1)
     df_schema = service.infer_schema(data_frame)
     queries = service.generate_n_queries(
         input_params.user_query, data_frame, df_schema, 2)
