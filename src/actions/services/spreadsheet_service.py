@@ -90,7 +90,7 @@ class SpreadSheetService:
 
         sql_query: str = response.split(r"```sql")[1]
         sql_query = sql_query.split(r"```")[0]
-        sql_query = sql_query.replace("'", '"')
+        sql_query = sql_query.replace(r"\'", "''")
         return sql_query
 
     def postprocess_result(self, user_query: str, extracted_data: str) -> str:
