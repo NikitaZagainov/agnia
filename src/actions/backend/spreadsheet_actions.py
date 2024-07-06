@@ -31,6 +31,9 @@ def extract_id(
     auth_data: dict, input_params: SheetIdExtractorInputParams
 ) -> SheetIdExtractorOutputParams:
     doc_id = service.extract_id_from_message(input_params.message)
+    print("--------------------------")
+    print("Id extracted")
+    print("--------------------------")
     return SheetIdExtractorOutputParams(doc_id=doc_id)
 
 
@@ -47,13 +50,33 @@ def query_sheet(
     token = json.loads(auth_data[SYSTEM_NAME])
     service.authenticate(token)
     try:
-        data_frame = service.extract_data_from_google_sheet(input_params.doc_id)
+        data_frame = service.extract_data_from_google_sheet(
+            input_params.doc_id)
     except Exception as e:
         return DownloadAndQuerySheetOutputParams(query_result="invalid link to doc")
-    df_schema = service.infer_schema(data_frame)
-    query = service.generate_sql_query(input_params.user_query, data_frame, df_schema)
-    query_result = service.query_table(data_frame, query)
-    return DownloadAndQuerySheetOutputParams(query_result=query_result)
+    print("--------------------------")
+    print("Downloaded data")
+    print("--------------------------")
+    # df_schema = service.infer_schema(data_frame)
+    # print("--------------------------")
+    # print("Schema extracted")
+    # print("--------------------------")
+    # queries = service.generate_n_queries(
+    #     input_params.user_query, data_frame, df_schema, 2)
+    # print("--------------------------")
+    # print("Generated queries")
+    # print("--------------------------")
+    # query_results = service.run_queries(data_frame, queries)
+    # print("--------------------------")
+    # print("Ran queries")
+    # print("--------------------------")
+    # chosen_result = service.choose_result(
+    #     input_params.user_query, query_results)
+    # print("--------------------------")
+    # print("Chosen result")
+    # print("--------------------------")
+    chosen_result  = '23'
+    return DownloadAndQuerySheetOutputParams(query_result=chosen_result)
 
 
 @register_action(
