@@ -17,3 +17,15 @@ class DownloadAndQuerySheetInputParams(BaseModel):
 
 class DownloadAndQuerySheetOutputParams(BaseModel):
     query_result: str
+      
+class SheetQueryOutputParams(BaseModel):
+    report: str
+
+
+class SheetPostprocessingInputParams(BaseModel):
+    message: str
+    report: str
+
+
+class SheetPostprocessingOutputParams(BaseModel):
+    report: str
