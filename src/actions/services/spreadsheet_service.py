@@ -52,6 +52,7 @@ class SpreadSheetService:
             data_frame = pd.DataFrame(dataset['values'])
             data_frame.columns = data_frame.iloc[0]
             data_frame.drop(data_frame.index[0], inplace=True)
+            data_frame.columns = [col.replace(" ", "_") for col in data_frame.columns]
             return data_frame
 
     def infer_schema(self, data_frame: pd.DataFrame) -> str:
