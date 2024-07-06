@@ -8,3 +8,12 @@ class SheetIdExtractorInputParams(BaseModel):
 
 class SheetIdExtractorOutputParams(BaseModel):
     doc_id: Optional[str]
+
+
+class SheetQueryInputParams(BaseModel):
+    doc_id: Optional[str]
+    message: str
+
+
+class SheetQueryOutputParams(BaseModel):
+    report: str
