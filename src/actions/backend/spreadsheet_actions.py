@@ -44,6 +44,12 @@ def extract_id(
 def query_sheet(
     auth_data: dict, input_params: DownloadAndQuerySheetInputParams
 ) -> DownloadAndQuerySheetOutputParams:
+    doc_id = input_params.doc_id
+    if doc_id is None:
+        return DownloadAndQuerySheetOutputParams(
+            query_result="You did not provide link to document.",
+            error_code=1
+        )
     token = json.loads(auth_data[SYSTEM_NAME])
     user_query = input_params.user_query
     link = service.extract_urls(user_query)[0]
@@ -54,11 +60,11 @@ def query_sheet(
         )
     service.authenticate(token)
     try:
-        data_frame = service.extract_data_from_google_sheet(input_params.doc_id)
+        data_frame = service.extract_data_from_google_sheet(doc_id)
     except Exception:
         return DownloadAndQuerySheetOutputParams(query_result="invalid link to doc", error_code=1)
     df_schema = service.infer_schema(data_frame)
-    query = service.generate_sql_query(input_params.user_query, data_frame, df_schema)
+    query = service.generate_sql_query(user_query, data_frame, df_schema)
     query_result = service.query_table(data_frame, query)
     return DownloadAndQuerySheetOutputParams(query_result=query_result, error_code=0)
 
