@@ -4,7 +4,7 @@ def form_extract_id_message(action_result_data: dict) -> tuple:
     if doc_id is None:
         message_str = "Failed to fetch document id"
     else:
-        message_str = f"Document id: {doc_id}"
+        message_str = f"Document id: \n{doc_id}"
     return message_str, message_dict
 
 def form_query_sheet_message(action_result_data: dict) -> tuple:
