@@ -84,7 +84,11 @@ def postprocess_sheet(
             report="Report is not generated due to the error from above."
         )
     return SheetPostprocessingOutputParams(
-        report=service.postprocess_result(
-            input_params.user_query, input_params.query_result
-        )
-    )
+         report=input_params.query_result
+     )
+    
+    # return SheetPostprocessingOutputParams(
+    #     report=service.postprocess_result(
+    #         input_params.user_query, input_params.query_result
+    #     )
+    # )

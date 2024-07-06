@@ -13,6 +13,7 @@ import importlib
 importlib.import_module(".extract", package="src.actions.ai")
 importlib.import_module(".gitflame_actions", package="src.actions.backend")
 importlib.import_module(".spreadsheet_actions", package="src.actions.backend")
+importlib.import_module(".mail_actions", package="src.actions.backend")
 
 class ResultStatusEnum(Enum):
     SUCCESS = "Success"
