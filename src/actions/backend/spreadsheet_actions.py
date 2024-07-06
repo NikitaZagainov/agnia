@@ -14,4 +14,4 @@ from src.actions.utils import extract_id_from_message
 def extract_id(auth_data: dict, input_params: SheetIdExtractorInputParams) -> SheetIdExtractorOutputParams:
     doc_id = extract_id_from_message(input_params.message)
 
-    return SheetIdExtractorOutputParams(doc_id=str(doc_id))
+    return SheetIdExtractorOutputParams(doc_id=doc_id)

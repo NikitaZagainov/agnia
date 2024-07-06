@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional
 
 
 class SheetIdExtractorInputParams(BaseModel):
@@ -6,4 +7,4 @@ class SheetIdExtractorInputParams(BaseModel):
 
 
 class SheetIdExtractorOutputParams(BaseModel):
-    doc_id: str
+    doc_id: Optional[str]
