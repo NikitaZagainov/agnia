@@ -17,9 +17,6 @@ class DownloadAndQuerySheetInputParams(BaseModel):
 
 class DownloadAndQuerySheetOutputParams(BaseModel):
     query_result: str
-      
-class SheetQueryOutputParams(BaseModel):
-    report: str
 
 
 class SheetPostprocessingInputParams(BaseModel):
