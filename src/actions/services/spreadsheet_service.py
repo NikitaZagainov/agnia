@@ -95,7 +95,7 @@ class SpreadSheetService:
 
     def postprocess_result(self, user_query: str, extracted_data: str) -> str:
         prompt = "Generate an understandable report on this message: {}, given this result: {}. "
-        "Construct your response in concise and short way, do not mention the provided links."
+        "Construct your response as short as possible and do not mention links."
         with ThreadPoolExecutor(max_workers=1) as executor:
             future = executor.submit(lambda: asyncio.run(
                 self._llm.get_response({"prompt": prompt.format(user_query, extracted_data)})))
