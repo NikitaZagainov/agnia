@@ -19,10 +19,11 @@ class ResultStatusEnum(Enum):
     FAIL = "Fail"
 
 
-with connect(f"{endpoints_settings.socket_endpoint}/{team_auth_settings.team_id}") as socket:
+with connect(
+    f"{endpoints_settings.socket_endpoint}/{team_auth_settings.team_id}"
+) as socket:
     print("Socket opened, waiting for messages...")
     try:
-
         while True:
             data_json = socket.recv()
             data = json.loads(data_json)
