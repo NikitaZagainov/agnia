@@ -168,9 +168,7 @@ class SpreadSheetService:
             query_results.append(query_result)
         return query_results
 
-    def choose_result(self, user_query: str, query_results: list[str]) -> str:
-        results_list = "\n".join(["{}. {}".format(i + 1, item)
-                                  for i, item in enumerate(query_results)])
+    def choose_result(self, user_query: str, results_list: str) -> str:
         prompt = f"""
         <|im_start|>system\n{CONSOLIDATION_AND_REPORT_PROMPT}<|im_end|>\n
         <|im_start|>user\n[Human Query]\n{user_query}\n[Results]\n{results_list}<|im_end|>\n

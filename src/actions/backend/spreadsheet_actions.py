@@ -68,9 +68,9 @@ def query_sheet(
     queries = service.generate_n_queries(
         input_params.user_query, data_frame, df_schema, 2)
     query_results = service.run_queries(data_frame, queries)
-    chosen_result = service.choose_result(
-        input_params.user_query, query_results)
-    return DownloadAndQuerySheetOutputParams(query_result=chosen_result, error_code=0)
+    query_results = "\n".join(["{}. {}".format(i + 1, item)
+                                  for i, item in enumerate(query_results)])
+    return DownloadAndQuerySheetOutputParams(query_result=query_results, error_code=0)
 
 
 @register_action(
@@ -83,13 +83,7 @@ def query_sheet(
 def postprocess_sheet(
     auth_data: dict, input_params: SheetPostprocessingInputParams
 ) -> SheetPostprocessingOutputParams:
-    return SheetPostprocessingOutputParams(report=input_params.query_result)
-    # if input_params.error_code == 1:
-    #     return SheetPostprocessingOutputParams(
-    #         report="Report is not generated due to the error from above."
-    #     )
-    # return SheetPostprocessingOutputParams(
-    #     report=service.postprocess_result(
-    #         input_params.user_query, input_params.query_result
-    #     )
-    # )
+    chosen_result = service.choose_result(
+        input_params.user_query, input_params.query_results)
+
+    return SheetPostprocessingOutputParams(report=chosen_result)
