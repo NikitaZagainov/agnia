@@ -69,7 +69,7 @@ class SpreadSheetService:
             cols = dataset["values"][0]
             data_frame = pd.DataFrame(dataset['values'][1:], columns=cols)
             data_frame.columns = [col.replace(
-                " ", "_") for col in data_frame.columns]
+                " ", "_").strip() if col.strip() else f"col-{idx}" for idx, col in enumerate(data_frame.columns)]
             # Try to infer the data types of the columns
             data_frame = data_frame.apply(convert_dtypes)
             return data_frame
@@ -129,7 +129,7 @@ class SpreadSheetService:
         for query in generated_queries:
             try:
                 query_result = self.query_table(data_frame, query)
-            except Exception:
+            except Exception as e:
                 query_result = None
             query_results.append(query_result)
         return query_results
