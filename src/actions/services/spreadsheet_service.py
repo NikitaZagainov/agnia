@@ -6,7 +6,6 @@ from concurrent.futures import ThreadPoolExecutor
 from pandas.io.json._table_schema import build_table_schema
 from src.settings import google_auth_settings
 from src.external_services.llm import LLM
-from pandasql import sqldf
 import re
 import asyncio
 from sqlite3 import connect, OperationalError

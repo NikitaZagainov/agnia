@@ -2,7 +2,6 @@ from typing import Type, Any, Callable
 
 from pydantic import BaseModel
 
-from src.actions.ai.base import Action
 from src.actions.exceptions import SystemNotFoundException, ActionNotFoundException
 
 
