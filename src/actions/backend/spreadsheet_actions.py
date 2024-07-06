@@ -66,7 +66,7 @@ def query_sheet(
         return DownloadAndQuerySheetOutputParams(query_result="invalid link to doc", error_code=1)
     df_schema = service.infer_schema(data_frame)
     queries = service.generate_n_queries(
-        input_params.user_query, data_frame, df_schema, 3)
+        input_params.user_query, data_frame, df_schema, 2)
     query_results = service.run_queries(data_frame, queries)
     query_results = "\n".join(["{}. {}".format(i + 1, item)
                                   for i, item in enumerate(query_results)])
