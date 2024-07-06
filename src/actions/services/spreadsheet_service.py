@@ -9,7 +9,7 @@ from src.external_services.llm import LLM
 from pandasql import sqldf
 import re
 import asyncio
-from sqlite3 import connect
+from sqlite3 import connect, OperationalError
 
 
 class SpreadSheetService:
@@ -58,9 +58,9 @@ class SpreadSheetService:
     def infer_schema(self, data_frame: pd.DataFrame) -> str:
         df_schema = build_table_schema(data_frame)
         del df_schema['pandas_version']
-        return df_schema
+        return str(df_schema)
 
-    def generate_sql_query(self, user_query: str, data_frame: pd.DataFrame, schema: str) -> str:
+    def generate_sql_query(self, user_query: str, data_frame: pd.DataFrame, schema: str, temperature: int = 0) -> str:
         example_data = self.__df_to_str(
             data_frame.head(min(data_frame.shape[0], 10)))
         prompt: str = f"""
@@ -83,7 +83,7 @@ class SpreadSheetService:
 
             future = executor.submit(
                 lambda: asyncio.run(
-                    self._llm.get_response({"prompt": prompt})
+                    self._llm.get_response({"prompt": prompt, "temperature": temperature})
                 )
             )
             response = future.result()
@@ -105,6 +105,54 @@ class SpreadSheetService:
         df.to_sql(name='df', con=conn)
         query_res: pd.DataFrame = pd.read_sql(query, conn)
         return self.__df_to_str(query_res)
+
+    def generate_n_queries(self, user_query: str, data_frame: pd.DataFrame, schema: str, n: int = 10) -> list[str]:
+        example_data = self.__df_to_str(
+            data_frame.head(min(data_frame.shape[0], 10)))
+        prompt: str = f"""
+        Give SQL query for the following -
+
+        Use only functions available in SQLite
+        Write apostroph as double quotes ''
+
+        Question:
+        {user_query}
+
+        Table Schema:  {schema}
+        Table Name : df
+
+        Some rows in the table looks like this:
+        {example_data}
+        """
+        generated_queries: list[str] = []
+        with ThreadPoolExecutor(max_workers=1) as executor:
+
+            for i in range(n):
+                future = executor.submit(
+                    lambda: asyncio.run(
+                        self._llm.get_response({"prompt": prompt, "temperature": i})
+                    )
+                )
+                response = future.result()
+                generated_queries.append(response)
+
+        for idx, query in generated_queries:
+            sql_query: str = query.split(r"```sql")[1]
+            sql_query = sql_query.split(r"```")[0]
+            sql_query = sql_query.replace(r"\'", "''")
+            generated_queries[idx] = sql_query
+        
+        return generated_queries
+    
+    def run_queries(self, generated_queries: list[str], data_frame: pd.DataFrame) -> list[str]:
+        query_results = []
+        for query in generated_queries:
+            try:
+                query_result = self.query_table(data_frame, query)
+            except OperationalError:
+                query_result = None
+            query_results.append(query_result)
+        return query_results
 
     def __df_to_str(self, data_frame: pd.DataFrame) -> str:
         df_str = data_frame.to_csv(
