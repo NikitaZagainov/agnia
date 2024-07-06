@@ -1,5 +1,18 @@
 from pydantic_settings import BaseSettings
 
+
+class GoogleAuthSettings(BaseSettings):
+    client_id: str = "1023020229153-likdvfjo9cj6psu9ojipr0eej9t5kgb2.apps.googleusercontent.com"
+    project_id: str = "light-footing-425712-g0"
+    auth_uri: str = "https://accounts.google.com/o/oauth2/auth"
+    token_uri: str = "https://oauth2.googleapis.com/token"
+    auth_provider_x509_cert_url: str = "https://www.googleapis.com/oauth2/v1/certs"
+    client_secret: str = "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"
+    redirect_uris: list[str] = [
+        "http://localhost:8845/get/token/google-sheets"]
+    scopes: list[str] = ["https://www.googleapis.com/auth/spreadsheets"]
+
+
 class TodoistAuthSettings(BaseSettings):
     todoist_oauth_api_url: str = "https://todoist.com/oauth/authorize/"
     todoist_token_exchange_api_url: str = "https://todoist.com/oauth/access_token/"
@@ -26,4 +39,5 @@ class EnpointsSettings(BaseSettings):
 
 team_auth_settings = TeamSettings()
 todoist_auth_settings = TodoistAuthSettings()
+google_auth_settings = GoogleAuthSettings()
 endpoints_settings = EnpointsSettings()

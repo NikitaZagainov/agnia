@@ -8,3 +8,4 @@ src/api_requests.py
 test.py
 plans.json
 token.json
+.venv/
