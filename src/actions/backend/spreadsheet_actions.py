@@ -92,4 +92,10 @@ class DownloadAndQuerySheet:
         return query_res_str
 
     async def execute(self, input_params: DownloadAndQuerySheetInputParams) -> DownloadAndQuerySheetOutputParams:
-        pass
+        doc_id: str = input_params.doc_id
+        df: pd.DataFrame = self.download_table(doc_id)
+        df_schema: str = self.infer_schema(df)
+        query: str = self.generate_sql_query(input_params.message, df, df_schema)
+        query_result: str = self.query_table(df, query)
+        
+        return DownloadAndQuerySheetOutputParams(query_result=query_result)
