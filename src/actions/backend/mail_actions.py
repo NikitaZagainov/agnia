@@ -50,7 +50,7 @@ def summarize_recent_mail(
         mail.login(username, password)
         mail.select("inbox")
 
-        _, data = mail.search(None, "ALL")
+        _, data = mail.search(None, "(UNSEEN)")
 
         latest_email_id = data[0].split()[-1]
 
