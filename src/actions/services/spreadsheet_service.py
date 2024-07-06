@@ -48,7 +48,6 @@ class SpreadSheetService:
                 spreadsheetId=doc_id,
                 range=sheet['properties']['title'],
                 majorDimension='ROWS').execute()
-            print(dataset)
             data_frame = pd.DataFrame(dataset['values'])
             data_frame.columns = data_frame.iloc[0]
             data_frame.drop(data_frame.index[0], inplace=True)

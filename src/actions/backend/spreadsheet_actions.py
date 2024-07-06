@@ -46,9 +46,7 @@ def query_sheet(
 ) -> DownloadAndQuerySheetOutputParams:
     token = json.loads(auth_data[SYSTEM_NAME])
     service.authenticate(token)
-    print("1"*50)
     data_frame = service.extract_data_from_google_sheet(input_params.doc_id)
-    print("9"*50)
     df_schema = service.infer_schema(data_frame)
     query = service.generate_sql_query(input_params.user_query, data_frame, df_schema)
     query_result = service.query_table(data_frame, query)
