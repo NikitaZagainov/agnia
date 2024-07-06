@@ -48,6 +48,7 @@ class SpreadSheetService:
                 spreadsheetId=doc_id,
                 range=sheet['properties']['title'],
                 majorDimension='ROWS').execute()
+            print(dataset)
             data_frame = pd.DataFrame(dataset['values'])
             data_frame.columns = data_frame.iloc[0]
             data_frame.drop(data_frame.index[0], inplace=True)
@@ -98,8 +99,8 @@ class SpreadSheetService:
                 self.llm.get_response({"prompt": prompt.format(user_query, extracted_data)})))
             return future.result()
 
-    def query_table(self, data_frame: pd.DataFrame, query: str) -> str:
-        def pysqldf(q): return sqldf(q, locals())
+    def query_table(self, df: pd.DataFrame, query: str) -> str:
+        def pysqldf(q): return sqldf(q, globals())
         query_res: pd.DataFrame = pysqldf(query)
         return self.__df_to_str(query_res)
 

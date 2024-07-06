@@ -20,8 +20,8 @@ class DownloadAndQuerySheetOutputParams(BaseModel):
 
 
 class SheetPostprocessingInputParams(BaseModel):
-    message: str
-    report: str
+    user_query: str
+    query_result: str
 
 
 class SheetPostprocessingOutputParams(BaseModel):
