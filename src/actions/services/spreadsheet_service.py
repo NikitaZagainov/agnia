@@ -127,7 +127,6 @@ class SpreadSheetService:
         """
         generated_queries: list[str] = []
         with ThreadPoolExecutor(max_workers=1) as executor:
-
             for i in range(n):
                 future = executor.submit(
                     lambda: asyncio.run(
@@ -137,10 +136,13 @@ class SpreadSheetService:
                 response = future.result()
                 generated_queries.append(response)
 
-        for idx, query in generated_queries:
-            sql_query: str = query.split(r"```sql")[1]
-            sql_query = sql_query.split(r"```")[0]
-            sql_query = sql_query.replace(r"\'", "''")
+        for idx, query in enumerate(generated_queries):
+            try:
+                sql_query: str = query.split(r"```sql")[1]
+                sql_query = sql_query.split(r"```")[0]
+                sql_query = sql_query.replace(r"\'", "''")
+            except Exception:
+                sql_query: str = query
             generated_queries[idx] = sql_query
         
         return generated_queries
@@ -156,7 +158,21 @@ class SpreadSheetService:
         return query_results
     
     def choose_query(self, user_query: str, generated_queries: list[str], query_results: list[str]) -> str:
-        pass
+        prompt: str = f"""
+        Give SQL query for the following -
+
+        Use only functions available in SQLite
+        Write apostroph as double quotes ''
+
+        Question:
+        {user_query}
+
+        Table Schema:  {schema}
+        Table Name : df
+
+        Some rows in the table looks like this:
+        {example_data}
+        """
 
     def __df_to_str(self, data_frame: pd.DataFrame) -> str:
         df_str = data_frame.to_csv(
