@@ -158,21 +158,29 @@ class SpreadSheetService:
         return query_results
     
     def choose_query(self, user_query: str, generated_queries: list[str], query_results: list[str]) -> str:
-        prompt: str = f"""
-        Give SQL query for the following -
+        queries_prompt = ''
+        for idx, (query, result) in enumerate(zip(generated_queries, query_results)):
+            queries_prompt += f"QUERY {idx}:\n" + query + f"\nRESULT {idx}:\n" + result + "\n"
 
-        Use only functions available in SQLite
-        Write apostroph as double quotes ''
-
-        Question:
+        user_query_prompt = f"""
+        USER QUERY:
         {user_query}
 
-        Table Schema:  {schema}
-        Table Name : df
-
-        Some rows in the table looks like this:
-        {example_data}
         """
+        base_prompt = """
+        Imagine you are Senior Data Engineer and you need to choose the best query. For this task you have user query in natural language and list of queries and it's results. Evaluate queries on this parameters:
+
+        1) How query close to user query
+        2) Semantic correctness of query
+        3) Syntax correctness of query based on SQLLite
+        """
+
+        full_prompt = base_prompt + user_query_prompt + queries_prompt
+
+        with ThreadPoolExecutor(max_workers=1) as executor:
+            future = executor.submit(lambda: asyncio.run(
+                self._llm.get_response({"prompt": full_prompt})))
+            return future.result()
 
     def __df_to_str(self, data_frame: pd.DataFrame) -> str:
         df_str = data_frame.to_csv(
