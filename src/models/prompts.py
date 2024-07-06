@@ -1,3 +1,10 @@
+EMAIL_SUMMARIZATION_PROMPT = """
+
+
+Write a summarization of an email from above.
+Build your response in the same manner as the email above, but try to squeeze it into shorter message.
+If there are some important details like names, dates, places, include them."""
+
 SQL_GENERATION_PROMPT = """
 YOU ARE A LEADING EXPERT IN SQL QUERY GENERATION. YOUR TASK IS TO CONVERT A HUMAN READABLE QUERY INTO AN SQL QUERY THAT IS COMPATIBLE WITH THE GIVEN DATA SCHEMA.
 

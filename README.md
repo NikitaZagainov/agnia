@@ -3,13 +3,19 @@
 
 # Project description
 
-Our idea is to provide service for automatic querying Google Sheets for business insights extraction.
+Our solution includes two services: Querying google spreadsheets and summarizing mail from mailbox.
 
+### Spreadsheets
 1) User sends query in natural language with link to Google Sheet from which he want to receive business insight
 2) Our service downloads spreadsheet in csv format
 3) LLM generates query in SQL language based on user message and table schema
 4) Service executes query on table and provide results
 5) LLM generates concise and accurate report based on the query result and user message and print it to the user
+
+### Mail
+1) User asks bot to summarize recent mail
+2) The service fetches latest unseen email from user's mailbox
+3) Bot returns summarized email to the user
 
 # Datasets used:
 1) [https://docs.google.com/spreadsheets/d/1Ucc4-r11InYoK7IGoDLWOtzeuXOwxsnsfD2y0DffXQ4](https://docs.google.com/spreadsheets/d/1Ucc4-r11InYoK7IGoDLWOtzeuXOwxsnsfD2y0DffXQ4)
@@ -104,7 +110,7 @@ Plan status - Completed successfully : Done
 ![image_4](images/image_4.png)
 
 # Business applications:
-
+### Spreadsheets
 1. Business and Management
     - Sales analysis and reporting.
     - KPI and performance tracking.
@@ -119,4 +125,12 @@ Plan status - Completed successfully : Done
 4. Production
     - Analysis of the productivity and efficiency of processes.
     - Inventory management of raw materials and finished products.
+
+### Mail
+1. Time optimization
+    - Quickly access email
+    - Read only most important information
+
+2. Availability
+    - Read mail without closing telegram
 

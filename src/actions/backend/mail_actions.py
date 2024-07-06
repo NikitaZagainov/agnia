@@ -1,6 +1,7 @@
 from src.actions.registry import register_action
 from src.actions.user_messages.mail_messages import form_mail_message
 from src.models.mail_params import MailInputParams, MailOutputParams
+from src.models.prompts import EMAIL_SUMMARIZATION_PROMPT
 from src.external_services.llm import LLM
 import email
 from email.header import decode_header
@@ -11,11 +12,6 @@ import asyncio
 
 imap_server = "mail.innopolis.ru"
 port = 993
-prompt = """{}
-
-Write a summarization of an email from above.
-Build your response in the same manner as the email above, but try to squeeze it into shorter message.
-If there are some important details like names, dates, places, include them."""
 llm = LLM()
 
 
@@ -92,7 +88,9 @@ def summarize_recent_mail(
     try:
         with ThreadPoolExecutor() as executor:
             future = executor.submit(
-                lambda: asyncio.run(llm.get_response({"prompt": prompt.format(body)}))
+                lambda: asyncio.run(
+                    llm.get_response({"prompt": body + EMAIL_SUMMARIZATION_PROMPT})
+                )
             )
 
         response = future.result()
