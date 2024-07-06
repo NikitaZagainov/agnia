@@ -2,3 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
+.env
+actions.json
+src/api_requests.py
+test.py
+plans.json
+.venv/

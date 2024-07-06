@@ -12,17 +12,18 @@ import importlib
 
 importlib.import_module(".extract", package="src.actions.ai")
 importlib.import_module(".gitflame_actions", package="src.actions.backend")
-
+importlib.import_module(".test_actions", package="src.actions.backend")
 
 class ResultStatusEnum(Enum):
     SUCCESS = "Success"
     FAIL = "Fail"
 
 
-with connect(f"{endpoints_settings.socket_endpoint}/{team_auth_settings.team_id}") as socket:
+with connect(
+    f"{endpoints_settings.socket_endpoint}/{team_auth_settings.team_id}"
+) as socket:
     print("Socket opened, waiting for messages...")
     try:
-
         while True:
             data_json = socket.recv()
             data = json.loads(data_json)
