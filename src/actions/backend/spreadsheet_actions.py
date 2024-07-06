@@ -31,9 +31,6 @@ def extract_id(
     auth_data: dict, input_params: SheetIdExtractorInputParams
 ) -> SheetIdExtractorOutputParams:
     doc_id = service.extract_id_from_message(input_params.message)
-    print("--------------------------")
-    print("Id extracted")
-    print("--------------------------")
     return SheetIdExtractorOutputParams(doc_id=doc_id)
 
 
@@ -67,29 +64,13 @@ def query_sheet(
             input_params.doc_id)
     except Exception as e:
         return DownloadAndQuerySheetOutputParams(query_result="invalid link to doc")
-    print("--------------------------")
-    print("Downloaded data")
-    print("--------------------------")
-    # df_schema = service.infer_schema(data_frame)
-    # print("--------------------------")
-    # print("Schema extracted")
-    # print("--------------------------")
-    # queries = service.generate_n_queries(
-    #     input_params.user_query, data_frame, df_schema, 2)
-    # print("--------------------------")
-    # print("Generated queries")
-    # print("--------------------------")
-    # query_results = service.run_queries(data_frame, queries)
-    # print("--------------------------")
-    # print("Ran queries")
-    # print("--------------------------")
-    # chosen_result = service.choose_result(
-    #     input_params.user_query, query_results)
-    # print("--------------------------")
-    # print("Chosen result")
-    # print("--------------------------")
-    chosen_result  = '23'
-    return DownloadAndQuerySheetOutputParams(query_result=chosen_result)
+    df_schema = service.infer_schema(data_frame)
+    queries = service.generate_n_queries(
+        input_params.user_query, data_frame, df_schema, 2)
+    query_results = service.run_queries(data_frame, queries)
+    chosen_result = service.choose_result(
+        input_params.user_query, query_results)
+    return DownloadAndQuerySheetOutputParams(query_result=chosen_result, error_code=0)
 
 
 @register_action(
@@ -102,12 +83,13 @@ def query_sheet(
 def postprocess_sheet(
     auth_data: dict, input_params: SheetPostprocessingInputParams
 ) -> SheetPostprocessingOutputParams:
-    if input_params.error_code == 1:
-        return SheetPostprocessingOutputParams(
-            report="Report is not generated due to the error from above."
-        )
-    return SheetPostprocessingOutputParams(
-        report=service.postprocess_result(
-            input_params.user_query, input_params.query_result
-        )
-    )
+    return SheetPostprocessingOutputParams(report=input_params.query_result)
+    # if input_params.error_code == 1:
+    #     return SheetPostprocessingOutputParams(
+    #         report="Report is not generated due to the error from above."
+    #     )
+    # return SheetPostprocessingOutputParams(
+    #     report=service.postprocess_result(
+    #         input_params.user_query, input_params.query_result
+    #     )
+    # )

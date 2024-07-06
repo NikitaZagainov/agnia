@@ -141,12 +141,13 @@ class SpreadSheetService:
 
         return generated_queries
 
-    def run_queries(self, generated_queries: list[str], data_frame: pd.DataFrame) -> list[str]:
+    def run_queries(self, data_frame: pd.DataFrame, generated_queries: list[str]) -> list[str]:
         query_results = []
         for query in generated_queries:
             try:
+                print(type(data_frame))
                 query_result = self.query_table(data_frame, query)
-            except OperationalError:
+            except Exception:
                 query_result = None
             query_results.append(query_result)
         return query_results
@@ -177,7 +178,7 @@ class SpreadSheetService:
         return urls
 
     def __extract_document_id(self, url):
-        pattern = r"/d/([^/]+)/"
+        pattern = r"/d/([^/]+)"
         match = re.search(pattern, url)
         if match:
             document_id = match.group(1)
