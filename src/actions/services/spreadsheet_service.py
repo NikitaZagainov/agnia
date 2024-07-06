@@ -79,40 +79,6 @@ class SpreadSheetService:
         del df_schema['pandas_version']
         return str(df_schema)
 
-    def generate_sql_query(self, user_query: str, data_frame: pd.DataFrame, schema: str, temperature: int = 0) -> str:
-        example_data = self.__df_to_str(
-            data_frame.head(min(data_frame.shape[0], 10)))
-        prompt: str = f"""
-        Give SQL query for the following -
-
-        Use only functions available in SQLite
-        Write apostroph as double quotes ''
-
-        Question:
-        {user_query}
-
-        Table Schema:  {schema}
-        Table Name : df
-
-        Some rows in the table looks like this:
-        {example_data}
-        """
-
-        with ThreadPoolExecutor(max_workers=1) as executor:
-
-            future = executor.submit(
-                lambda: asyncio.run(
-                    self._llm.get_response(
-                        {"prompt": prompt, "temperature": temperature})
-                )
-            )
-            response = future.result()
-
-        sql_query: str = response.split(r"```sql")[1]
-        sql_query = sql_query.split(r"```")[0]
-        sql_query = sql_query.replace(r"\'", "''")
-        return sql_query
-
     def postprocess_result(self, user_query: str, extracted_data: str) -> str:
         prompt = "Generate an understandable report on this message: {}, given this result: {}. "
         "Construct your response as short as possible and do not mention links."
@@ -168,7 +134,7 @@ class SpreadSheetService:
             query_results.append(query_result)
         return query_results
 
-    def choose_result(self, user_query: str, results_list: str) -> str:
+    def postprocess_result(self, user_query: str, results_list: str) -> str:
         prompt = f"""
         <|im_start|>system\n{CONSOLIDATION_AND_REPORT_PROMPT}<|im_end|>\n
         <|im_start|>user\n[Human Query]\n{user_query}\n[Results]\n{results_list}<|im_end|>\n
