@@ -1,6 +1,5 @@
 from pydantic_settings import BaseSettings
 
-
 class TodoistAuthSettings(BaseSettings):
     todoist_oauth_api_url: str = "https://todoist.com/oauth/authorize/"
     todoist_token_exchange_api_url: str = "https://todoist.com/oauth/access_token/"
@@ -14,8 +13,8 @@ class TodoistAuthSettings(BaseSettings):
 
 class TeamSettings(BaseSettings):
     # no defaults are provided, so startup fails if settings are not specified
-    team_id: str
-    access_token: str
+    team_id: str = "a7cd05aa-8913-4a99-8b4b-4fdf1ba90410"
+    access_token: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYTdjZDA1YWEtODkxMy00YTk5LThiNGItNGZkZjFiYTkwNDEwIiwiZXhwIjoxNzIwNTU1NDQ3LjA2Njg2NCwiaXNzIjoiYmFja2VuZDphY2Nlc3MtdG9rZW4ifQ.n9KouTwuzjjHJdi95NblZpYG9jz0fpo0ZXlTeaVe2tc"
 
 
 class EnpointsSettings(BaseSettings):
