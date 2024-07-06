@@ -17,11 +17,13 @@ class DownloadAndQuerySheetInputParams(BaseModel):
 
 class DownloadAndQuerySheetOutputParams(BaseModel):
     query_result: str
+    error_code: int
 
 
 class SheetPostprocessingInputParams(BaseModel):
     user_query: str
     query_result: str
+    error_code: int
 
 
 class SheetPostprocessingOutputParams(BaseModel):

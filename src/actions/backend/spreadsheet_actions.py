@@ -45,15 +45,22 @@ def query_sheet(
     auth_data: dict, input_params: DownloadAndQuerySheetInputParams
 ) -> DownloadAndQuerySheetOutputParams:
     token = json.loads(auth_data[SYSTEM_NAME])
+    user_query = input_params.user_query
+    link = service.extract_urls(user_query)[0]
+    if link == user_query.strip(" \n\t"):
+        return DownloadAndQuerySheetOutputParams(
+            query_result="You did not provide any query.",
+            error_code=1
+        )
     service.authenticate(token)
     try:
         data_frame = service.extract_data_from_google_sheet(input_params.doc_id)
-    except Exception as e:
-        return DownloadAndQuerySheetOutputParams(query_result="invalid link to doc")
+    except Exception:
+        return DownloadAndQuerySheetOutputParams(query_result="invalid link to doc", error_code=1)
     df_schema = service.infer_schema(data_frame)
     query = service.generate_sql_query(input_params.user_query, data_frame, df_schema)
     query_result = service.query_table(data_frame, query)
-    return DownloadAndQuerySheetOutputParams(query_result=query_result)
+    return DownloadAndQuerySheetOutputParams(query_result=query_result, error_code=0)
 
 
 @register_action(
@@ -66,6 +73,10 @@ def query_sheet(
 def postprocess_sheet(
     auth_data: dict, input_params: SheetPostprocessingInputParams
 ) -> SheetPostprocessingOutputParams:
+    if input_params.error_code == 1:
+        return SheetPostprocessingOutputParams(
+            report="Report is not generated due to the error from above."
+        )
     return SheetPostprocessingOutputParams(
         report=service.postprocess_result(
             input_params.user_query, input_params.query_result
