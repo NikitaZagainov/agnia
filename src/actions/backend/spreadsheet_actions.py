@@ -64,5 +64,7 @@ def postprocess_sheet(
     auth_data: dict, input_params: SheetPostprocessingInputParams
 ) -> SheetPostprocessingOutputParams:
     return SheetPostprocessingOutputParams(
-        service.postprocess_results(input_params.message, input_params.report)
+        report=service.postprocess_result(
+            input_params.user_query, input_params.query_result
+        )
     )
