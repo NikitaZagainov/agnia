@@ -9,6 +9,7 @@ from src.external_services.llm import LLM
 from pandasql import sqldf
 import re
 import asyncio
+from sqlite3 import connect
 
 
 class SpreadSheetService:
@@ -99,8 +100,9 @@ class SpreadSheetService:
             return future.result()
 
     def query_table(self, df: pd.DataFrame, query: str) -> str:
-        def pysqldf(q): return sqldf(q, globals())
-        query_res: pd.DataFrame = pysqldf(query)
+        conn = connect(':memory:')
+        df.to_sql(name='df', con=conn)
+        query_res: pd.DataFrame = pd.read_sql(query, conn)
         return self.__df_to_str(query_res)
 
     def __df_to_str(self, data_frame: pd.DataFrame) -> str:
