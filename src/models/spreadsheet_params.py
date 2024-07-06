@@ -10,10 +10,10 @@ class SheetIdExtractorOutputParams(BaseModel):
     doc_id: Optional[str]
 
 
-class SheetQueryInputParams(BaseModel):
+class DownloadAndQuerySheetInputParams(BaseModel):
     doc_id: Optional[str]
-    message: str
+    user_query: str
 
 
-class SheetQueryOutputParams(BaseModel):
-    report: str
+class DownloadAndQuerySheetOutputParams(BaseModel):
+    query_result: str
