@@ -68,7 +68,6 @@ with connect(
                 }
 
                 action_results.update(messages)
-
                 # adding action results, so they can be used in other actions
                 if execution_result is not None:
                     action_results["result"] = execution_result
