@@ -13,8 +13,6 @@ import asyncio
 imap_server = "mail.innopolis.ru"
 port = 993
 llm = LLM()
-
-
 @register_action(
     MailInputParams,
     MailOutputParams,
@@ -25,6 +23,21 @@ llm = LLM()
 def summarize_recent_mail(
     authorization_data: dict, input_data: MailInputParams
 ) -> MailOutputParams:
+    """
+    Fetches and summarizes the most recent email from the user's inbox.
+
+    Args:
+        authorization_data (dict): A dictionary containing the user's
+            authorization data.
+        input_data (MailInputParams): Input parameters for the action.
+
+    Returns:
+        MailOutputParams: The output parameters of the action.
+
+    Raises:
+        None
+    """
+
     try:
         username = authorization_data["InnopolisMail"]["username"]
         password = authorization_data["InnopolisMail"]["password"]
@@ -37,7 +50,7 @@ def summarize_recent_mail(
         mail.login(username, password)
         mail.select("inbox")
 
-        _, data = mail.search(None, "ALL")
+        _, data = mail.search(None, "(UNSEEN)")
 
         latest_email_id = data[0].split()[-1]
 
@@ -107,3 +120,4 @@ def summarize_recent_mail(
     return MailOutputParams(
         subject=subject, time=time, sender=sender, body=response, error_code=0
     )
+

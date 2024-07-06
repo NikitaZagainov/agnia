@@ -17,5 +17,5 @@ def form_mail_message(action_result_data: dict) -> tuple:
     message_str = (
         f"Subject: {subject}\n" f"Time: {time}\n" f"Sender: {sender}\n" f"Body:\n{body}"
     )
-    
+
     return message_str, message_dict

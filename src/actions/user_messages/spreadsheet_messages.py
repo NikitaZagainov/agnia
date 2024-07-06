@@ -11,7 +11,7 @@ def form_extract_id_message(action_result_data: dict) -> tuple:
 def form_query_sheet_message(action_result_data: dict) -> tuple:
     query_result = action_result_data["query_result"]
     message_dict = {"query_result": query_result}
-    message_str = f"Query is executed successfully"
+    message_str = "Query is executed successfully"
     return message_str, message_dict
 
 
