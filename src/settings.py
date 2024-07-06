@@ -11,6 +11,8 @@ class GoogleAuthSettings(BaseSettings):
     redirect_uris: list[str] = [
         "http://localhost:8845/get/token/google-sheets"]
     scopes: list[str] = ["https://www.googleapis.com/auth/spreadsheets"]
+    api_service_name: str = "sheets"
+    api_version: str = "v4"
 
 
 class TodoistAuthSettings(BaseSettings):
