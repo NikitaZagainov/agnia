@@ -193,7 +193,7 @@ class SpreadSheetService:
         return urls
 
     def __extract_document_id(self, url):
-        pattern = r"/d/([^/]+)/"
+        pattern = r"/d/([^/]+)"
         match = re.search(pattern, url)
         if match:
             document_id = match.group(1)
