@@ -1,0 +1,3543 @@
+{
+    "ai_actions": {
+        "actions": {
+            "extract_name": {
+                "description": "Executes the extract_name action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_executor": {
+                "description": "Executes the extract_executor action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_deadline": {
+                "description": "Executes the extract_deadline action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_task_number": {
+                "description": "Executes the extract_task_number action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_description": {
+                "description": "Executes the extract_description action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_column": {
+                "description": "Executes the extract_column action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_board": {
+                "description": "Executes the extract_board action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_project": {
+                "description": "Executes the extract_project action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_search_name": {
+                "description": "Executes the extract_search_name action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_search_executor": {
+                "description": "Executes the extract_search_executor action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_priority": {
+                "description": "Executes the extract_priority action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_read_params": {
+                "description": "Executes the extract_read_params action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_update_params": {
+                "description": "Executes the extract_update_params action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_number": {
+                "description": "Executes the extract_number action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_issue_title": {
+                "description": "Executes the extract_issue_title action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "extract_issue_body": {
+                "description": "Executes the extract_issue_body action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "str",
+                        "required": true
+                    }
+                }
+            },
+            "retrieve_user": {
+                "description": "Executes the retrieve_user action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    },
+                    "search_list": {
+                        "type": "array",
+                        "items": {
+                            "type": "str",
+                            "required": true
+                        }
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "id": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "score": {
+                                    "type": "float",
+                                    "required": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "retrieve_column": {
+                "description": "Executes the retrieve_column action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    },
+                    "search_list": {
+                        "type": "array",
+                        "items": {
+                            "type": "str",
+                            "required": true
+                        }
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "id": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "score": {
+                                    "type": "float",
+                                    "required": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "retrieve_board": {
+                "description": "Executes the retrieve_board action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    },
+                    "search_list": {
+                        "type": "array",
+                        "items": {
+                            "type": "str",
+                            "required": true
+                        }
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "id": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "score": {
+                                    "type": "float",
+                                    "required": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "retrieve_name": {
+                "description": "Executes the retrieve_name action",
+                "input_parameters": {
+                    "user_request": {
+                        "type": "str",
+                        "required": true
+                    },
+                    "search_list": {
+                        "type": "array",
+                        "items": {
+                            "type": "str",
+                            "required": true
+                        }
+                    }
+                },
+                "output_parameters": {
+                    "answer": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "id": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "score": {
+                                    "type": "float",
+                                    "required": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "validate_executor": {
+                "description": "Executes the validate_executor action",
+                "input_parameters": {
+                    "extraction_result": {
+                        "type": "str",
+                        "required": true
+                    },
+                    "retrieval_result": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "id": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "score": {
+                                    "type": "float",
+                                    "required": true
+                                }
+                            }
+                        }
+                    }
+                },
+                "output_parameters": {
+                    "retrieval_result": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "id": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "score": {
+                                    "type": "float",
+                                    "required": true
+                                }
+                            }
+                        }
+                    },
+                    "validation_status": {
+                        "type": "bool",
+                        "required": true
+                    }
+                }
+            },
+            "validate_name": {
+                "description": "Executes the validate_name action",
+                "input_parameters": {
+                    "extraction_result": {
+                        "type": "str",
+                        "required": true
+                    },
+                    "retrieval_result": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "id": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "score": {
+                                    "type": "float",
+                                    "required": true
+                                }
+                            }
+                        }
+                    }
+                },
+                "output_parameters": {
+                    "retrieval_result": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "id": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "score": {
+                                    "type": "float",
+                                    "required": true
+                                }
+                            }
+                        }
+                    },
+                    "validation_status": {
+                        "type": "bool",
+                        "required": true
+                    }
+                }
+            },
+            "validate_column": {
+                "description": "Executes the validate_column action",
+                "input_parameters": {
+                    "extraction_result": {
+                        "type": "str",
+                        "required": true
+                    },
+                    "retrieval_result": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "id": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "score": {
+                                    "type": "float",
+                                    "required": true
+                                }
+                            }
+                        }
+                    }
+                },
+                "output_parameters": {
+                    "retrieval_result": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "id": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "score": {
+                                    "type": "float",
+                                    "required": true
+                                }
+                            }
+                        }
+                    },
+                    "validation_status": {
+                        "type": "bool",
+                        "required": true
+                    }
+                }
+            },
+            "validate_project": {
+                "description": "Executes the validate_project action",
+                "input_parameters": {
+                    "extraction_result": {
+                        "type": "str",
+                        "required": true
+                    },
+                    "retrieval_result": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "id": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "score": {
+                                    "type": "float",
+                                    "required": true
+                                }
+                            }
+                        }
+                    }
+                },
+                "output_parameters": {
+                    "retrieval_result": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "id": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "score": {
+                                    "type": "float",
+                                    "required": true
+                                }
+                            }
+                        }
+                    },
+                    "validation_status": {
+                        "type": "bool",
+                        "required": true
+                    }
+                }
+            },
+            "validate_board": {
+                "description": "Executes the validate_board action",
+                "input_parameters": {
+                    "extraction_result": {
+                        "type": "str",
+                        "required": true
+                    },
+                    "retrieval_result": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "id": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "score": {
+                                    "type": "float",
+                                    "required": true
+                                }
+                            }
+                        }
+                    }
+                },
+                "output_parameters": {
+                    "retrieval_result": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "id": {
+                                    "type": "str",
+                                    "required": true
+                                },
+                                "score": {
+                                    "type": "float",
+                                    "required": true
+                                }
+                            }
+                        }
+                    },
+                    "validation_status": {
+                        "type": "bool",
+                        "required": true
+                    }
+                }
+            }
+        }
+    },
+    "backend_actions": [
+        {
+            "system_name": "TeamFlame",
+            "description": "System to work with tasks",
+            "actions": {
+                "Read task": {
+                    "description": "Reads task by id and returns its data",
+                    "input_parameters": {
+                        "task_id": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "path"
+                        }
+                    },
+                    "output_parameters": {
+                        "id": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "name": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "description": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "priority": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "required": true
+                        },
+                        "startDate": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "endDate": {
+                            "type": "str",
+                            "required": true
+                        }
+                    }
+                },
+                "Create task": {
+                    "description": "Creates a new task",
+                    "input_parameters": {
+                        "name": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "body"
+                        },
+                        "description": {
+                            "type": "string",
+                            "disposition": "body"
+                        },
+                        "priority": {
+                            "type": "string",
+                            "disposition": "body"
+                        },
+                        "status": {
+                            "type": "string",
+                            "disposition": "body"
+                        },
+                        "columnId": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "body"
+                        },
+                        "startDate": {
+                            "type": "string",
+                            "disposition": "body"
+                        },
+                        "endDate": {
+                            "type": "string",
+                            "disposition": "body"
+                        }
+                    },
+                    "output_parameters": {
+                        "id": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "name": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "creator": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "required": true
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "required": true
+                                },
+                                "avatar": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "required": true
+                                },
+                                "firstName": {
+                                    "type": "string"
+                                },
+                                "lastName": {
+                                    "type": "string"
+                                },
+                                "surName": {
+                                    "type": "string"
+                                },
+                                "color": {
+                                    "type": "string"
+                                },
+                                "rights": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "space": {
+                                                "type": "string"
+                                            },
+                                            "permissions": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "look-aroung": {
+                                                        "type": "boolean"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "role": {
+                                    "type": "string"
+                                },
+                                "createdAt": {
+                                    "type": "string"
+                                },
+                                "updatedAt": {
+                                    "type": "string"
+                                },
+                                "oAuthAccounts": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "description": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "priority": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "status": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "columnId": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "files": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "users": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "avatar": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "firstName": {
+                                        "type": "string"
+                                    },
+                                    "lastName": {
+                                        "type": "string"
+                                    },
+                                    "surName": {
+                                        "type": "string"
+                                    },
+                                    "color": {
+                                        "type": "string"
+                                    },
+                                    "rights": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "space": {
+                                                    "type": "string"
+                                                },
+                                                "permissions": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "look-aroung": {
+                                                            "type": "boolean"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "role": {
+                                        "type": "string"
+                                    },
+                                    "createdAt": {
+                                        "type": "string"
+                                    },
+                                    "updatedAt": {
+                                        "type": "string"
+                                    },
+                                    "oAuthAccounts": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "column": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "boardId": {
+                                        "type": "string"
+                                    },
+                                    "color": {
+                                        "type": "string"
+                                    },
+                                    "tasks": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "projectId": {
+                                        "type": "string"
+                                    },
+                                    "isClose": {
+                                        "type": "boolean"
+                                    },
+                                    "isQueue": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            }
+                        },
+                        "dependenceOf": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "subTasks": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "views": {
+                            "type": "integer"
+                        },
+                        "projectId": {
+                            "type": "string"
+                        },
+                        "boardId": {
+                            "type": "string"
+                        },
+                        "spaceId": {
+                            "type": "string"
+                        },
+                        "taskNumber": {
+                            "type": "string"
+                        },
+                        "startDate": {
+                            "type": "string"
+                        },
+                        "endDate": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        },
+                        "logs": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "Delete task": {
+                    "description": "Deletes a task by id",
+                    "input_parameters": {
+                        "task_id": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "path"
+                        }
+                    },
+                    "output_parameters": {
+                        "status": {
+                            "type": "boolean"
+                        },
+                        "spaceId": {
+                            "type": "string"
+                        },
+                        "projectId": {
+                            "type": "string"
+                        },
+                        "folderId": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "Update task": {
+                    "description": "Updates a task by id",
+                    "input_parameters": {
+                        "task_id": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "path"
+                        },
+                        "name": {
+                            "type": "string",
+                            "disposition": "body"
+                        },
+                        "description": {
+                            "type": "string",
+                            "disposition": "body"
+                        },
+                        "priority": {
+                            "type": "string",
+                            "disposition": "body"
+                        },
+                        "status": {
+                            "type": "string",
+                            "disposition": "body"
+                        },
+                        "columnId": {
+                            "type": "string",
+                            "disposition": "body"
+                        }
+                    },
+                    "output_parameters": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "priority": {
+                            "type": "string"
+                        },
+                        "status": {
+                            "type": "string"
+                        },
+                        "columnId": {
+                            "type": "string"
+                        },
+                        "boardId": {
+                            "type": "string"
+                        },
+                        "startDate": {
+                            "type": "string"
+                        },
+                        "endDate": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "Get Space": {
+                    "description": "Get Space by Id",
+                    "input_parameters": {
+                        "space_id": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "path"
+                        }
+                    },
+                    "output_parameters": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "logo": {
+                            "type": "string"
+                        },
+                        "color": {
+                            "type": "string"
+                        },
+                        "users": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "owner": {
+                            "type": "string"
+                        },
+                        "invites": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "inviteIds": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "inviteSettings": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "Get Space Tasks": {
+                    "description": "Get all tasks of the space",
+                    "input_parameters": {
+                        "space_id": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "path"
+                        }
+                    },
+                    "output_parameters": {
+                        "result": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "creator": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "avatar": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "firstName": {
+                                                "type": "string"
+                                            },
+                                            "lastName": {
+                                                "type": "string"
+                                            },
+                                            "surName": {
+                                                "type": "string"
+                                            },
+                                            "color": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "priority": {
+                                        "type": "string"
+                                    },
+                                    "columnId": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "string"
+                                    },
+                                    "files": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "users": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "taskNumber": {
+                                        "type": "string"
+                                    },
+                                    "views": {
+                                        "type": "integer"
+                                    },
+                                    "projectId": {
+                                        "type": "string"
+                                    },
+                                    "spaceId": {
+                                        "type": "string"
+                                    },
+                                    "boardId": {
+                                        "type": "string"
+                                    },
+                                    "dependenceOf": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "startDate": {
+                                        "type": "string"
+                                    },
+                                    "endDate": {
+                                        "type": "string"
+                                    },
+                                    "subTasks": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "spectators": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "target": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "column": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "color": {
+                                                "type": "string"
+                                            },
+                                            "isClose": {
+                                                "type": "boolean"
+                                            }
+                                        }
+                                    },
+                                    "project": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "color": {
+                                                "type": "string"
+                                            },
+                                            "logo": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "board": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "depth": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "Get My Spaces": {
+                    "description": "Retrieve all spaces for the current user",
+                    "input_parameters": {},
+                    "output_parameters": {
+                        "result": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "logo": {
+                                        "type": "string"
+                                    },
+                                    "color": {
+                                        "type": "string"
+                                    },
+                                    "users": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "owner": {
+                                        "type": "string"
+                                    },
+                                    "invites": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "inviteIds": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "inviteSettings": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "createdAt": {
+                                        "type": "string"
+                                    },
+                                    "updatedAt": {
+                                        "type": "string"
+                                    },
+                                    "specs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "Get User Profile": {
+                    "description": "Retrieve the current user's profile",
+                    "input_parameters": {},
+                    "output_parameters": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "firstName": {
+                            "type": "string"
+                        },
+                        "lastName": {
+                            "type": "string"
+                        },
+                        "surName": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "Change Column": {
+                    "description": "Change the cloumn for a task",
+                    "input_parameters": {
+                        "task_id": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "path"
+                        },
+                        "columnId": {
+                            "type": "string",
+                            "disposition": "body"
+                        },
+                        "location": {
+                            "type": "string",
+                            "disposition": "body"
+                        }
+                    },
+                    "output_parameters": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "creator": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "priority": {
+                            "type": "string"
+                        },
+                        "status": {
+                            "type": "string"
+                        },
+                        "columnId": {
+                            "type": "string"
+                        },
+                        "projectId": {
+                            "type": "string"
+                        },
+                        "boardId": {
+                            "type": "string"
+                        },
+                        "spaceId": {
+                            "type": "string"
+                        },
+                        "taskNumber": {
+                            "type": "string"
+                        },
+                        "startDate": {
+                            "type": "string"
+                        },
+                        "endDate": {
+                            "type": "string"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "Get Board": {
+                    "description": "Get Board By ID",
+                    "input_parameters": {
+                        "board_id": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "path"
+                        }
+                    },
+                    "output_parameters": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "logo": {
+                            "type": "string"
+                        },
+                        "columns": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "spaceId": {
+                            "type": "string"
+                        },
+                        "projectId": {
+                            "type": "string"
+                        },
+                        "isPersonal": {
+                            "type": "boolean"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "Get Project": {
+                    "description": "Get Project by ID",
+                    "input_parameters": {
+                        "project_id": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "path"
+                        }
+                    },
+                    "output_parameters": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "users": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "teams": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "boards": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "notes": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "favorite": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "owner": {
+                            "type": "string"
+                        },
+                        "space": {
+                            "type": "string"
+                        },
+                        "private": {
+                            "type": "boolean"
+                        },
+                        "projectKey": {
+                            "type": "string"
+                        },
+                        "taskKey": {
+                            "type": "integer"
+                        },
+                        "createdAt": {
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "Get Project Boards": {
+                    "description": "Get all boards of the project",
+                    "input_parameters": {
+                        "project_id": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "path"
+                        }
+                    },
+                    "output_parameters": {
+                        "result": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "logo": {
+                                        "type": "string"
+                                    },
+                                    "columns": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "spaceId": {
+                                        "type": "string"
+                                    },
+                                    "projectId": {
+                                        "type": "string"
+                                    },
+                                    "isPersonal": {
+                                        "type": "boolean"
+                                    },
+                                    "createdAt": {
+                                        "type": "string"
+                                    },
+                                    "updatedAt": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "Get Space Boards": {
+                    "description": "Get all boards of the space",
+                    "input_parameters": {
+                        "space_id": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "path"
+                        }
+                    },
+                    "output_parameters": {
+                        "result": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "logo": {
+                                        "type": "string"
+                                    },
+                                    "columns": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "spaceId": {
+                                        "type": "string"
+                                    },
+                                    "projectId": {
+                                        "type": "string"
+                                    },
+                                    "isPersonal": {
+                                        "type": "boolean"
+                                    },
+                                    "createdAt": {
+                                        "type": "string"
+                                    },
+                                    "updatedAt": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "Get Space Projects": {
+                    "description": "Get all projects of the space",
+                    "input_parameters": {
+                        "space_id": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "path"
+                        }
+                    },
+                    "output_parameters": {
+                        "result": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "logo": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "users": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "required": true
+                                    },
+                                    "owner": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "statuses": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "required": true
+                                    },
+                                    "space": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "folders": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "required": true
+                                    },
+                                    "teams": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "required": true
+                                    },
+                                    "boards": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "required": true
+                                    },
+                                    "notes": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "required": true
+                                    },
+                                    "private": {
+                                        "type": "boolean",
+                                        "required": true
+                                    },
+                                    "favorite": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "required": true
+                                    },
+                                    "projectKey": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "taskKey": {
+                                        "type": "integer",
+                                        "required": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "Get Space Users": {
+                    "description": "Get the list of all users of the space",
+                    "input_parameters": {
+                        "space_id": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "path"
+                        }
+                    },
+                    "output_parameters": {
+                        "result": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "avatar": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "firstName": {
+                                        "type": "string"
+                                    },
+                                    "lastName": {
+                                        "type": "string"
+                                    },
+                                    "surName": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "required": true
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "system_name": "GitFlame",
+            "description": "A service for managing git projects and repositories.",
+            "actions": {
+                "Get repo information": {
+                    "description": "Returns information about the repository",
+                    "input_parameters": {
+                        "owner": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "repo": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    },
+                    "output_parameters": {
+                        "id": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "owner": {
+                            "required": true,
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "login": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "full_name": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "avatar_url": {
+                                    "type": "string"
+                                },
+                                "language": {
+                                    "type": "string"
+                                },
+                                "is_admin": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "last_login": {
+                                    "type": "string"
+                                },
+                                "created": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "restricted": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "active": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "prohibit_login": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "location": {
+                                    "type": "string"
+                                },
+                                "website": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "visibility": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "followers_count": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "following_count": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "starred_repos_count": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "permission": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "username": {
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "name": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "full_name": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "empty": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "private": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "pinned": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "is_starred": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "fork": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "template": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "parent": {
+                            "type": "object",
+                            "null": true
+                        },
+                        "mirror": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "size": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "language": {
+                            "type": "string"
+                        },
+                        "languages_url": {
+                            "type": "string"
+                        },
+                        "html_url": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "ssh_url": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "clone_url": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "original_url": {
+                            "type": "string"
+                        },
+                        "website": {
+                            "type": "string"
+                        },
+                        "stars_count": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "forks_count": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "watchers_count": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "open_issues_count": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "open_pr_counter": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "release_counter": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "default_branch": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "archived": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "created_at": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "updated_at": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "permissions": {
+                            "required": true,
+                            "type": "object"
+                        },
+                        "has_issues": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "internal_tracker": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "has_wiki": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "has_pull_requests": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "has_projects": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "ignore_whitespace_conflicts": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "allow_merge_commits": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "allow_rebase": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "allow_rebase_explicit": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "allow_squash_merge": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "default_merge_style": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "avatar_url": {
+                            "type": "string"
+                        },
+                        "internal": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "mirror_interval": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "mirror_updated": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "has_cicd": {
+                            "required": true,
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "Create issue": {
+                    "description": "Creates an issue in the repository",
+                    "input_parameters": {
+                        "owner": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "repo": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "assignees": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "disposition": "body"
+                        },
+                        "body": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "body"
+                        },
+                        "closed": {
+                            "type": "boolean",
+                            "disposition": "body"
+                        },
+                        "due_date": {
+                            "type": "string",
+                            "disposition": "body"
+                        },
+                        "labels": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "disposition": "body"
+                        },
+                        "milestone": {
+                            "type": "integer",
+                            "disposition": "body"
+                        },
+                        "ref": {
+                            "type": "string",
+                            "disposition": "body"
+                        },
+                        "title": {
+                            "type": "string",
+                            "required": true,
+                            "disposition": "body"
+                        }
+                    },
+                    "output_parameters": {
+                        "assignees": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "login": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "full_name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "avatar_url": {
+                                        "type": "string"
+                                    },
+                                    "language": {
+                                        "type": "string"
+                                    },
+                                    "is_admin": {
+                                        "required": true,
+                                        "type": "boolean"
+                                    },
+                                    "last_login": {
+                                        "type": "string"
+                                    },
+                                    "created": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "restricted": {
+                                        "required": true,
+                                        "type": "boolean"
+                                    },
+                                    "active": {
+                                        "required": true,
+                                        "type": "boolean"
+                                    },
+                                    "prohibit_login": {
+                                        "required": true,
+                                        "type": "boolean"
+                                    },
+                                    "location": {
+                                        "type": "string"
+                                    },
+                                    "website": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "visibility": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "followers_count": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "following_count": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "starred_repos_count": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "permission": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "required": true,
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "body": {
+                            "type": "string"
+                        },
+                        "closed_at": {
+                            "type": "string"
+                        },
+                        "comments": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "created_at": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "due_date": {
+                            "type": "string"
+                        },
+                        "html_url": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "id": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "is_locked": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "labels": {
+                            "type": "array",
+                            "items": {
+                                "type": "label"
+                            }
+                        },
+                        "milestone": {
+                            "type": "milestone"
+                        },
+                        "number": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "original_author": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "original_author_id": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "pull_request": {
+                            "type": "object",
+                            "properties": {
+                                "merged": {
+                                    "type": "boolean"
+                                },
+                                "merged_at": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "ref": {
+                            "type": "string"
+                        },
+                        "repository": {
+                            "required": true,
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "name": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "owner": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "full_name": {
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "state": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "title": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "updated_at": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "url": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "user": {
+                            "required": true,
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "login": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "full_name": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "avatar_url": {
+                                    "type": "string"
+                                },
+                                "language": {
+                                    "type": "string"
+                                },
+                                "is_admin": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "last_login": {
+                                    "type": "string"
+                                },
+                                "created": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "restricted": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "active": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "prohibit_login": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "location": {
+                                    "type": "string"
+                                },
+                                "website": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "visibility": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "followers_count": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "following_count": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "starred_repos_count": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "permission": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "username": {
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "Get issue": {
+                    "description": "Returns information about specific issue",
+                    "input_parameters": {
+                        "owner": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "repo": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "index": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "integer"
+                        }
+                    },
+                    "output_parameters": {
+                        "assignees": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "login": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "full_name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "avatar_url": {
+                                        "type": "string"
+                                    },
+                                    "language": {
+                                        "type": "string"
+                                    },
+                                    "is_admin": {
+                                        "required": true,
+                                        "type": "boolean"
+                                    },
+                                    "last_login": {
+                                        "type": "string"
+                                    },
+                                    "created": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "restricted": {
+                                        "required": true,
+                                        "type": "boolean"
+                                    },
+                                    "active": {
+                                        "required": true,
+                                        "type": "boolean"
+                                    },
+                                    "prohibit_login": {
+                                        "required": true,
+                                        "type": "boolean"
+                                    },
+                                    "location": {
+                                        "type": "string"
+                                    },
+                                    "website": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "visibility": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "followers_count": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "following_count": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "starred_repos_count": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "permission": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "required": true,
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "body": {
+                            "type": "string"
+                        },
+                        "closed_at": {
+                            "type": "string"
+                        },
+                        "comments": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "created_at": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "due_date": {
+                            "type": "string"
+                        },
+                        "html_url": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "id": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "is_locked": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "labels": {
+                            "type": "array",
+                            "items": {
+                                "type": "label"
+                            }
+                        },
+                        "milestone": {
+                            "type": "milestone"
+                        },
+                        "number": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "original_author": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "original_author_id": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "pull_request": {
+                            "type": "object",
+                            "properties": {
+                                "merged": {
+                                    "type": "boolean"
+                                },
+                                "merged_at": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "ref": {
+                            "type": "string"
+                        },
+                        "repository": {
+                            "required": true,
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "name": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "owner": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "full_name": {
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "state": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "title": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "updated_at": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "url": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "user": {
+                            "required": true,
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "login": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "full_name": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "avatar_url": {
+                                    "type": "string"
+                                },
+                                "language": {
+                                    "type": "string"
+                                },
+                                "is_admin": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "last_login": {
+                                    "type": "string"
+                                },
+                                "created": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "restricted": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "active": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "prohibit_login": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "location": {
+                                    "type": "string"
+                                },
+                                "website": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "visibility": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "followers_count": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "following_count": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "starred_repos_count": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "permission": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "username": {
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "Delete issue": {
+                    "description": "Deletes an issue from the repository",
+                    "input_parameters": {
+                        "owner": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "repo": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "index": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "integer"
+                        }
+                    },
+                    "output_parameters": {}
+                },
+                "Edit issue": {
+                    "description": "Edits an issue in the repository",
+                    "input_parameters": {
+                        "owner": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "repo": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "index": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "assignees": {
+                            "disposition": "body",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "body": {
+                            "disposition": "body",
+                            "type": "string"
+                        },
+                        "due_data": {
+                            "disposition": "body",
+                            "type": "string"
+                        },
+                        "milestone": {
+                            "disposition": "body",
+                            "type": "integer"
+                        },
+                        "ref": {
+                            "disposition": "body",
+                            "type": "string"
+                        },
+                        "state": {
+                            "disposition": "body",
+                            "type": "string"
+                        },
+                        "title": {
+                            "disposition": "body",
+                            "type": "string"
+                        },
+                        "unset_due_date": {
+                            "disposition": "body",
+                            "type": "boolean"
+                        }
+                    },
+                    "output_parameters": {
+                        "assignees": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "login": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "full_name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "avatar_url": {
+                                        "type": "string"
+                                    },
+                                    "language": {
+                                        "type": "string"
+                                    },
+                                    "is_admin": {
+                                        "required": true,
+                                        "type": "boolean"
+                                    },
+                                    "last_login": {
+                                        "type": "string"
+                                    },
+                                    "created": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "restricted": {
+                                        "required": true,
+                                        "type": "boolean"
+                                    },
+                                    "active": {
+                                        "required": true,
+                                        "type": "boolean"
+                                    },
+                                    "prohibit_login": {
+                                        "required": true,
+                                        "type": "boolean"
+                                    },
+                                    "location": {
+                                        "type": "string"
+                                    },
+                                    "website": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "visibility": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "followers_count": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "following_count": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "starred_repos_count": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "permission": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "required": true,
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "body": {
+                            "type": "string"
+                        },
+                        "closed_at": {
+                            "type": "string"
+                        },
+                        "comments": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "created_at": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "due_date": {
+                            "type": "string"
+                        },
+                        "html_url": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "id": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "is_locked": {
+                            "required": true,
+                            "type": "boolean"
+                        },
+                        "labels": {
+                            "type": "array",
+                            "items": {
+                                "type": "label"
+                            }
+                        },
+                        "milestone": {
+                            "type": "milestone"
+                        },
+                        "number": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "original_author": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "original_author_id": {
+                            "required": true,
+                            "type": "integer"
+                        },
+                        "pull_request": {
+                            "type": "object",
+                            "properties": {
+                                "merged": {
+                                    "type": "boolean"
+                                },
+                                "merged_at": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "ref": {
+                            "type": "string"
+                        },
+                        "repository": {
+                            "required": true,
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "name": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "owner": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "full_name": {
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "state": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "title": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "updated_at": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "url": {
+                            "required": true,
+                            "type": "string"
+                        },
+                        "user": {
+                            "required": true,
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "login": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "full_name": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "avatar_url": {
+                                    "type": "string"
+                                },
+                                "language": {
+                                    "type": "string"
+                                },
+                                "is_admin": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "last_login": {
+                                    "type": "string"
+                                },
+                                "created": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "restricted": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "active": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "prohibit_login": {
+                                    "required": true,
+                                    "type": "boolean"
+                                },
+                                "location": {
+                                    "type": "string"
+                                },
+                                "website": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "visibility": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "followers_count": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "following_count": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "starred_repos_count": {
+                                    "required": true,
+                                    "type": "integer"
+                                },
+                                "permission": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "username": {
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "Get repo issues": {
+                    "description": "Returns a list of issues in the repositories based on the provided filters",
+                    "input_parameters": {
+                        "owner": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "repo": {
+                            "disposition": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        "state": {
+                            "disposition": "query",
+                            "type": "string"
+                        },
+                        "labels": {
+                            "disposition": "query",
+                            "type": "string"
+                        },
+                        "q": {
+                            "disposition": "query",
+                            "type": "string"
+                        },
+                        "milestones": {
+                            "disposition": "query",
+                            "type": "string"
+                        },
+                        "since": {
+                            "disposition": "query",
+                            "type": "string"
+                        },
+                        "before": {
+                            "disposition": "query",
+                            "type": "string"
+                        },
+                        "created_by": {
+                            "disposition": "query",
+                            "type": "string"
+                        },
+                        "assigned_by": {
+                            "disposition": "query",
+                            "type": "string"
+                        },
+                        "mentioned_by": {
+                            "disposition": "query",
+                            "type": "string"
+                        },
+                        "page": {
+                            "disposition": "query",
+                            "type": "integer"
+                        },
+                        "limit": {
+                            "disposition": "query",
+                            "type": "integer"
+                        },
+                        "sort": {
+                            "disposition": "query",
+                            "type": "string"
+                        }
+                    },
+                    "output_parameters": {
+                        "issues": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "assignees": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "required": true,
+                                                    "type": "integer"
+                                                },
+                                                "login": {
+                                                    "required": true,
+                                                    "type": "string"
+                                                },
+                                                "full_name": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "avatar_url": {
+                                                    "type": "string"
+                                                },
+                                                "language": {
+                                                    "type": "string"
+                                                },
+                                                "is_admin": {
+                                                    "required": true,
+                                                    "type": "boolean"
+                                                },
+                                                "last_login": {
+                                                    "type": "string"
+                                                },
+                                                "created": {
+                                                    "required": true,
+                                                    "type": "string"
+                                                },
+                                                "restricted": {
+                                                    "required": true,
+                                                    "type": "boolean"
+                                                },
+                                                "active": {
+                                                    "required": true,
+                                                    "type": "boolean"
+                                                },
+                                                "prohibit_login": {
+                                                    "required": true,
+                                                    "type": "boolean"
+                                                },
+                                                "location": {
+                                                    "type": "string"
+                                                },
+                                                "website": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "visibility": {
+                                                    "required": true,
+                                                    "type": "string"
+                                                },
+                                                "followers_count": {
+                                                    "required": true,
+                                                    "type": "integer"
+                                                },
+                                                "following_count": {
+                                                    "required": true,
+                                                    "type": "integer"
+                                                },
+                                                "starred_repos_count": {
+                                                    "required": true,
+                                                    "type": "integer"
+                                                },
+                                                "permission": {
+                                                    "required": true,
+                                                    "type": "string"
+                                                },
+                                                "username": {
+                                                    "required": true,
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "body": {
+                                        "type": "string"
+                                    },
+                                    "closed_at": {
+                                        "type": "string"
+                                    },
+                                    "comments": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "created_at": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "due_date": {
+                                        "type": "string"
+                                    },
+                                    "html_url": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "is_locked": {
+                                        "required": true,
+                                        "type": "boolean"
+                                    },
+                                    "labels": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "label"
+                                        }
+                                    },
+                                    "milestone": {
+                                        "type": "milestone"
+                                    },
+                                    "number": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "original_author": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "original_author_id": {
+                                        "required": true,
+                                        "type": "integer"
+                                    },
+                                    "pull_request": {
+                                        "type": "object",
+                                        "properties": {
+                                            "merged": {
+                                                "type": "boolean"
+                                            },
+                                            "merged_at": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "ref": {
+                                        "type": "string"
+                                    },
+                                    "repository": {
+                                        "required": true,
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "required": true,
+                                                "type": "integer"
+                                            },
+                                            "name": {
+                                                "required": true,
+                                                "type": "string"
+                                            },
+                                            "owner": {
+                                                "required": true,
+                                                "type": "string"
+                                            },
+                                            "full_name": {
+                                                "required": true,
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "state": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "updated_at": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "url": {
+                                        "required": true,
+                                        "type": "string"
+                                    },
+                                    "user": {
+                                        "required": true,
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "required": true,
+                                                "type": "integer"
+                                            },
+                                            "login": {
+                                                "required": true,
+                                                "type": "string"
+                                            },
+                                            "full_name": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "avatar_url": {
+                                                "type": "string"
+                                            },
+                                            "language": {
+                                                "type": "string"
+                                            },
+                                            "is_admin": {
+                                                "required": true,
+                                                "type": "boolean"
+                                            },
+                                            "last_login": {
+                                                "type": "string"
+                                            },
+                                            "created": {
+                                                "required": true,
+                                                "type": "string"
+                                            },
+                                            "restricted": {
+                                                "required": true,
+                                                "type": "boolean"
+                                            },
+                                            "active": {
+                                                "required": true,
+                                                "type": "boolean"
+                                            },
+                                            "prohibit_login": {
+                                                "required": true,
+                                                "type": "boolean"
+                                            },
+                                            "location": {
+                                                "type": "string"
+                                            },
+                                            "website": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "visibility": {
+                                                "required": true,
+                                                "type": "string"
+                                            },
+                                            "followers_count": {
+                                                "required": true,
+                                                "type": "integer"
+                                            },
+                                            "following_count": {
+                                                "required": true,
+                                                "type": "integer"
+                                            },
+                                            "starred_repos_count": {
+                                                "required": true,
+                                                "type": "integer"
+                                            },
+                                            "permission": {
+                                                "required": true,
+                                                "type": "string"
+                                            },
+                                            "username": {
+                                                "required": true,
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "team_actions": {
+        "GoogleSheets": {
+            "extract_id": {
+                "description": "Extracts spreadsheet id from message",
+                "input_parameters": {
+                    "message": {
+                        "type": "string",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "doc_id": {
+                        "type": "string",
+                        "required": true
+                    }
+                }
+            },
+            "query_sheet": {
+                "description": "Performs SQL query on the sheet",
+                "input_parameters": {
+                    "doc_id": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "user_query": {
+                        "type": "string",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "query_result": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "error_code": {
+                        "type": "integer",
+                        "required": true
+                    }
+                }
+            },
+            "postprocess_sheet": {
+                "description": "Postprocesses the result into a report",
+                "input_parameters": {
+                    "query_result": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "user_query": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "error_code": {
+                        "type": "integer",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "report": {
+                        "type": "string",
+                        "required": true
+                    }
+                }
+            }
+        },
+        "InnopolisMail": {
+            "summarize_recent_mail": {
+                "description": "Fetches and summarized recent emails",
+                "input_parameters": {
+                    "message": {
+                        "type": "string",
+                        "required": true
+                    }
+                },
+                "output_parameters": {
+                    "subject": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "body": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "time": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "sender": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "error_code": {
+                        "type": "integer",
+                        "required": true
+                    }
+                }
+            }
+        }
+    }
+}
