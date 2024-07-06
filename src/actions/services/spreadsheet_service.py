@@ -154,6 +154,9 @@ class SpreadSheetService:
                 query_result = None
             query_results.append(query_result)
         return query_results
+    
+    def choose_query(self, user_query: str, generated_queries: list[str], query_results: list[str]) -> str:
+        pass
 
     def __df_to_str(self, data_frame: pd.DataFrame) -> str:
         df_str = data_frame.to_csv(
