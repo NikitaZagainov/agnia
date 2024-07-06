@@ -6,6 +6,8 @@ from concurrent.futures import ThreadPoolExecutor
 from pandas.io.json._table_schema import build_table_schema
 from src.settings import google_auth_settings
 from src.external_services.llm import LLM
+from pandasql import sqldf
+from src.models.prompts import SQL_GENERATION_PROMPT, CONSOLIDATION_AND_REPORT_PROMPT
 import re
 import asyncio
 from sqlite3 import connect, OperationalError
@@ -51,7 +53,8 @@ class SpreadSheetService:
             data_frame = pd.DataFrame(dataset['values'])
             data_frame.columns = data_frame.iloc[0]
             data_frame.drop(data_frame.index[0], inplace=True)
-            data_frame.columns = [col.replace(" ", "_") for col in data_frame.columns]
+            data_frame.columns = [col.replace(
+                " ", "_") for col in data_frame.columns]
             return data_frame
 
     def infer_schema(self, data_frame: pd.DataFrame) -> str:
@@ -82,7 +85,8 @@ class SpreadSheetService:
 
             future = executor.submit(
                 lambda: asyncio.run(
-                    self._llm.get_response({"prompt": prompt, "temperature": temperature})
+                    self._llm.get_response(
+                        {"prompt": prompt, "temperature": temperature})
                 )
             )
             response = future.result()
@@ -109,27 +113,18 @@ class SpreadSheetService:
     def generate_n_queries(self, user_query: str, data_frame: pd.DataFrame, schema: str, n: int = 10) -> list[str]:
         example_data = self.__df_to_str(
             data_frame.head(min(data_frame.shape[0], 10)))
-        prompt: str = f"""
-        Give SQL query for the following -
-
-        Use only functions available in SQLite
-        Write apostroph as double quotes ''
-
-        Question:
-        {user_query}
-
-        Table Schema:  {schema}
-        Table Name : df
-
-        Some rows in the table looks like this:
-        {example_data}
+        prompt = f"""
+        <|im_start|>system\n{SQL_GENERATION_PROMPT}<|im_end|>\n
+        <|im_start|>user\n[Human Query]\n{user_query}\n[Data Schema]\n{schema}\n[Sample Data]{example_data}<|im_end|>\n
+        <|im_start|>assistant\n
         """
         generated_queries: list[str] = []
         with ThreadPoolExecutor(max_workers=1) as executor:
             for i in range(n):
                 future = executor.submit(
                     lambda: asyncio.run(
-                        self._llm.get_response({"prompt": prompt, "temperature": i})
+                        self._llm.get_response(
+                            {"prompt": prompt, "temperature": i})
                     )
                 )
                 response = future.result()
@@ -143,42 +138,32 @@ class SpreadSheetService:
             except Exception:
                 sql_query: str = query
             generated_queries[idx] = sql_query
-        
+
         return generated_queries
-    
-    def run_queries(self, generated_queries: list[str], data_frame: pd.DataFrame) -> list[str]:
+
+    def run_queries(self, data_frame: pd.DataFrame, generated_queries: list[str]) -> list[str]:
         query_results = []
         for query in generated_queries:
             try:
+                print(type(data_frame))
                 query_result = self.query_table(data_frame, query)
-            except OperationalError:
+            except Exception:
                 query_result = None
             query_results.append(query_result)
         return query_results
-    
-    def choose_query(self, user_query: str, generated_queries: list[str], query_results: list[str]) -> str:
-        queries_prompt = ''
-        for idx, (query, result) in enumerate(zip(generated_queries, query_results)):
-            queries_prompt += f"QUERY {idx}:\n" + query + f"\nRESULT {idx}:\n" + result + "\n"
 
-        user_query_prompt = f"""
-        USER QUERY:
-        {user_query}
-
+    def choose_result(self, user_query: str, query_results: list[str]) -> str:
+        results_list = "\n".join(["{}. {}".format(i + 1, item)
+                                  for i, item in enumerate(query_results)])
+        prompt = f"""
+        <|im_start|>system\n{CONSOLIDATION_AND_REPORT_PROMPT}<|im_end|>\n
+        <|im_start|>user\n[Human Query]\n{user_query}\n[Results]\n{results_list}<|im_end|>\n
+        <|im_start|>assistant\n
         """
-        base_prompt = """
-        Imagine you are Senior Data Engineer and you need to choose the best query. For this task you have user query in natural language and list of queries and it's results. Evaluate queries on this parameters:
-
-        1) How query close to user query
-        2) Semantic correctness of query
-        3) Syntax correctness of query based on SQLLite
-        """
-
-        full_prompt = base_prompt + user_query_prompt + queries_prompt
 
         with ThreadPoolExecutor(max_workers=1) as executor:
             future = executor.submit(lambda: asyncio.run(
-                self._llm.get_response({"prompt": full_prompt})))
+                self._llm.get_response({"prompt": prompt})))
             return future.result()
 
     def __df_to_str(self, data_frame: pd.DataFrame) -> str:
