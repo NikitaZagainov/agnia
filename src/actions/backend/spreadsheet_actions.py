@@ -64,7 +64,7 @@ class DownloadAndQuerySheet:
         {user_query}
 
         Table Schema:  {schema}
-        Table Name : salary_df
+        Table Name : df
 
         Some rows in the table looks like this:
         {df_str}
