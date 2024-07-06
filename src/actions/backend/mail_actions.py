@@ -2,8 +2,8 @@ from src.actions.registry import register_action
 from src.actions.user_messages.mail_messages import form_mail_message
 from src.models.mail_params import MailInputParams, MailOutputParams
 from src.external_services.llm import LLM
-from email.parser import BytesParser
-from email import policy
+import email
+from email.header import decode_header
 import imaplib
 from concurrent.futures import ThreadPoolExecutor
 import asyncio
@@ -11,7 +11,11 @@ import asyncio
 
 imap_server = "mail.innopolis.ru"
 port = 993
-prompt = "You are given with an email: {}. Write a summarization with all important points included."
+prompt = """{}
+
+Write a summarization of an email from above.
+Build your response in the same manner as the email above, but try to squeeze it into shorter message.
+If there are some important details like names, dates, places, include them."""
 llm = LLM()
 
 
@@ -37,32 +41,71 @@ def summarize_recent_mail(
         mail.login(username, password)
         mail.select("inbox")
 
-        result, data = mail.uid("search", None, "(UNSEEN)")
-        email_uid = data[0].split()[-1]
+        _, data = mail.search(None, "ALL")
 
-        result, data = mail.uid("fetch", email_uid, "(BODY[])")
-        email_message = BytesParser(policy=policy.default).parsebytes(data[0][1])
+        latest_email_id = data[0].split()[-1]
+
+        _, data = mail.fetch(latest_email_id, "(RFC822)")
+
+        email_message = email.message_from_bytes(data[0][1])
+
+        subject = decode_header(email_message["Subject"])[0][0]
+        if isinstance(subject, bytes):
+            subject = subject.decode()
+
+        # Fetch the internal date (received time)
+        time = mail.fetch(latest_email_id, "(INTERNALDATE)")[1][0].decode()
+        time = time[time.index('"') + 1 : time.rindex('"')]
+
+        # Fetch the sender
+        sender = email_message.get("From")
+
+        # Fetch the email body
+        # This part might need adjustments based on the email structure
+        if email_message.is_multipart():
+            for part in email_message.walk():
+                content_type = part.get_content_type()
+                if content_type == "text/plain" or content_type == "text/html":
+                    body = part.get_payload(decode=True).decode()
+                    break
+        else:
+            body = email_message.get_payload(decode=True).decode()
+
+    except IndexError:
+        return MailOutputParams(
+            subject=None,
+            time=None,
+            sender=None,
+            body="No new emails",
+            error_code=1,
+        )
 
     except Exception:
-        return MailOutputParams(response="Error fetching mailbox", error_code=1)
+        return MailOutputParams(
+            subject=None,
+            time=None,
+            sender=None,
+            body="Failed to fetch email",
+            error_code=1,
+        )
 
     try:
-        decoded_text = ""
+        with ThreadPoolExecutor() as executor:
+            future = executor.submit(
+                lambda: asyncio.run(llm.get_response({"prompt": prompt.format(body)}))
+            )
 
-        for part in email_message.walk():
-            if part.get_content_type() == "text/plain":
-                decoded_text += part.get_payload(decode=True).decode(
-                    part.get_content_charset()
-                )
+        response = future.result()
 
     except Exception:
-        return MailOutputParams(response="Error decoding email content", error_code=1)
-
-    with ThreadPoolExecutor(max_workers=1) as executor:
-        future = executor.submit(
-            lambda: asyncio.run(
-                llm.get_response({"prompt": prompt.format(decoded_text)})
-            )
+        return MailOutputParams(
+            subject=None,
+            time=None,
+            sender=None,
+            body="Failed to summarize email",
+            error_code=1,
         )
-    response = future.result()
-    return MailOutputParams(response=response, error_code=0)
+
+    return MailOutputParams(
+        subject=subject, time=time, sender=sender, body=response, error_code=0
+    )

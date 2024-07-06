@@ -1,8 +1,12 @@
 from pydantic import BaseModel
+from typing import Optional
 
 class MailInputParams(BaseModel):
     message: str
 
 class MailOutputParams(BaseModel):
-    response: str
+    subject: Optional[str]
+    time: Optional[str]
+    sender: Optional[str]
+    body: Optional[str]
     error_code: int
