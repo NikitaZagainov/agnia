@@ -12,7 +12,7 @@ import importlib
 
 importlib.import_module(".extract", package="src.actions.ai")
 importlib.import_module(".gitflame_actions", package="src.actions.backend")
-importlib.import_module(".test_actions", package="src.actions.backend")
+importlib.import_module(".spreadsheet_actions", package="src.actions.backend")
 
 class ResultStatusEnum(Enum):
     SUCCESS = "Success"
@@ -68,7 +68,6 @@ with connect(
                 }
 
                 action_results.update(messages)
-
                 # adding action results, so they can be used in other actions
                 if execution_result is not None:
                     action_results["result"] = execution_result
