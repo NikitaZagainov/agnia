@@ -17,3 +17,12 @@ class SheetQueryInputParams(BaseModel):
 
 class SheetQueryOutputParams(BaseModel):
     report: str
+
+
+class SheetPostprocessingInputParams(BaseModel):
+    message: str
+    report: str
+
+
+class SheetPostprocessingOutputParams(BaseModel):
+    report: str
