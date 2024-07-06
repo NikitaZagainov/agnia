@@ -47,7 +47,20 @@ def extract_id(
 def query_sheet(
     auth_data: dict, input_params: DownloadAndQuerySheetInputParams
 ) -> DownloadAndQuerySheetOutputParams:
+    doc_id = input_params.doc_id
+    if doc_id is None:
+        return DownloadAndQuerySheetOutputParams(
+            query_result="You did not provide link to document.",
+            error_code=1
+        )
     token = json.loads(auth_data[SYSTEM_NAME])
+    user_query = input_params.user_query
+    link = service.extract_urls(user_query)[0]
+    if link == user_query.strip(" \n\t"):
+        return DownloadAndQuerySheetOutputParams(
+            query_result="You did not provide any query.",
+            error_code=1
+        )
     service.authenticate(token)
     try:
         data_frame = service.extract_data_from_google_sheet(
@@ -89,6 +102,10 @@ def query_sheet(
 def postprocess_sheet(
     auth_data: dict, input_params: SheetPostprocessingInputParams
 ) -> SheetPostprocessingOutputParams:
+    if input_params.error_code == 1:
+        return SheetPostprocessingOutputParams(
+            report="Report is not generated due to the error from above."
+        )
     return SheetPostprocessingOutputParams(
         report=service.postprocess_result(
             input_params.user_query, input_params.query_result
