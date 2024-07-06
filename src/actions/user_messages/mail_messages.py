@@ -8,14 +8,10 @@ def form_mail_message(action_result_data: dict) -> tuple:
     if error_code == 1:
         return body, {"error_code": 1}
     message_dict = {
-        "Subject": subject,
-        "Time": time,
-        "Sender": sender,
-        "Body": body,
+        "error_code": error_code,
     }
 
     message_str = (
-        f"Subject: {subject}\n" f"Time: {time}\n" f"Sender: {sender}\n" f"Body:\n{body}"
+        f"Sender: {sender}\n" f"Subject: {subject}\n" f"Time: {time}\n" f"Body:\n{body}"
     )
-
     return message_str, message_dict

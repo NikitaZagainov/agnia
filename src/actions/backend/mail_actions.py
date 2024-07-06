@@ -50,7 +50,7 @@ def summarize_recent_mail(
         mail.login(username, password)
         mail.select("inbox")
 
-        _, data = mail.search(None, "(UNSEEN)")
+        _, data = mail.search(None, "ALL")
 
         latest_email_id = data[0].split()[-1]
 
@@ -67,7 +67,7 @@ def summarize_recent_mail(
         time = time[time.index('"') + 1 : time.rindex('"')]
 
         # Fetch the sender
-        sender = email_message.get("From")
+        sender = email_message.get("From").split()[0]
 
         # Fetch the email body
         # This part might need adjustments based on the email structure
